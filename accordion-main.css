@@ -1,0 +1,187 @@
+/* Minor body formating */
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* Accordion Container styling */
+.accordion-container {
+    width: 700px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 0;
+}
+/* Accordion Item styling */
+.accordion-item {
+    width: 700px;
+}
+/* Accordion Section content hidden styling */
+.accordion-section {
+    display: block;
+    width: 700px;
+    height: 90px;
+    margin: 0;
+    padding: 0;
+    background-color: #9E39AE;
+    border-bottom: 5px solid #6F277C;
+}
+/* Accordion Section h1 content hidden styling */
+.accordion-section h1 {
+    position: relative;
+    float: left;
+    margin: 25px 15px;
+    font-weight: bold; 
+    color: #FFFFFF;
+    font: italic; 
+}
+/* Accordion Section Button hidden styling */
+.accordion-section button {
+    position: relative;
+    float: right;
+    width: 50px;
+    height: 50px;
+    margin: 25px 5px;
+    border: none;
+    outline: none;
+    background-color: #9E39AE;
+}
+/* Accordion Section Button on mouse houver hidden styling */
+.accordion-section button:hover {
+    border: none;
+    background-color: #9E39AE;
+}
+/* Accordion Section content show styling */
+.accordion-section-show {
+    background-color: #6844B5;
+    border-bottom: 5px solid #6F277C;
+    transition-duration: 0.5s;
+}
+/* Accordion Section Button show styling */
+.accordion-section-show button {
+    background-color: #6844B5;
+    transition-duration: 0.5s;
+}
+/* Accordion Section + Button on mouse houver show styling */
+.accordion-section-show .accordion-button.active:hover {
+    border: none;
+    background-color: #6844B5;
+}
+/* Inner button animation regarding two horizontal lines that rotate using a fix point in the X axis
+Many thanks to W3schools and CodePen for showing me how to do it (Yeah I know, I broke some of the rules :) )
+Tweaked it a bit so that it looks like the arrow is rotating from Up -> Right -> Bottom */
+/* Draw the horizontal white lines using Before and After selectors */  
+.accordion-section button:before, .accordion-section button:after {
+    position: absolute;
+    content: "";
+    width: 18px;
+    height: 3px;
+    background: #FFFFFF;
+    top: 20px;
+    transition: transform 0.5s;
+}
+/* Non active horizontal (before) position change and rotation */
+.accordion-section button:before {
+    right: 21px;
+    border-radius: 10px 0 0 10px; /* top-left top-right bottom-right bottom-left */
+    transform: rotate(-45deg);
+}
+/* Non active horizontal (after) position change and rotation */
+.accordion-section button:after {
+    right: 10px;
+    border-radius: 10px 0 0 10px; /* top-left top-right bottom-right bottom-left */
+    transform: rotate(-135deg);
+}
+/* Active horizontal (before) position change and rotation */
+.accordion-section button.active:before {
+    right: 21px;
+    border-radius: 10px 0 0 10px; /* top-left top-right bottom-right bottom-left */
+    transform: rotate(45deg);
+}
+/* Active horizontal (after) position change and rotation */
+.accordion-section button.active:after {
+    right: 10px;
+    border-radius: 10px 0 0 10px; /* top-left top-right bottom-right bottom-left */
+    transform: rotate(135deg);
+}
+/* Accordion Content hidden styling */
+.accordion-content {
+    width: 696px;
+    height: 0px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 7px;
+    background-color: #FFFFFF;
+    transition-duration: 0.4s;
+}
+/* Accordion Content Paragraph hidden styling */
+.accordion-content p {
+    color: #5B5B5B;
+    margin: 0;
+    padding: 0px;
+    height: 0;
+    overflow: hidden;
+    transition-duration: 0.4s;
+}
+/* Accordion Content show styling */
+.accordion-content-show {
+    width: 696px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 7px;
+    border-right: 2px solid #EAEAEA;
+    border-bottom: 2px solid #EAEAEA;
+    border-left: 2px solid #EAEAEA;
+    background-color: #FFFFFF;
+    transition-duration: 0.4s;
+}
+/* Accordion Content Paragraph show styling */
+.accordion-content-show p {
+    margin: 0;
+    padding: 20px;
+    height: auto;
+    overflow: visible;
+    transition-duration: 0.4s;
+}
+
+/* Styling for two different screen sizes: */
+/* HD-1366-16:9 - For tablet devices */
+@media only screen and (max-width: 1366px) {
+    .accordion-container {
+        width: 600px;
+    }
+    .accordion-item {
+        width: 600px;
+    }
+    
+    .accordion-section {
+        width: 600px;
+    }
+    .accordion-content {
+        width: 596px;
+    }
+}
+/* HD-1366-16:9 - For tablet devices */
+@media only screen and (max-width: 800px) {
+    .accordion-container {
+        width: 100%;
+        margin: auto;
+    }
+    .accordion-item {
+        width: 100%;
+    }
+    
+    .accordion-section {
+        width: 100%;
+    }
+    .accordion-content {
+        width:99%;         /* Ulgy tweak of the content margin widh */
+        height: auto;
+    }
+    .accordion-content-show p {
+        margin: auto;
+        padding: 20px;
+        height: auto;
+        overflow: visible;
+    }
+}
